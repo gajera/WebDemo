@@ -1,4 +1,4 @@
-package com.ecs.company.dao;
+package com.ecs.company.dao.daoimpl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ecs.company.dao.ContactDAO;
 import com.ecs.company.model.Contact;
 
 @Repository

@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Home</title>
@@ -14,39 +15,32 @@
 			<li  class="active"><a >Dashboard<br><br><br><br><br></a></li>
 		 </ul>
 
-		  <div class="navbar">
-          <div class="navbar-inner">
-		  <ul class="nav nav-pills">
-			  <li class="active">
-			    <a href="#">Home</a>
-			  </li>
-			  <li><a href="#">Core Team</a></li>
-			  <li><a href="#">Communication</a></li>
-		  </ul>
-		  </div>
-		  </div>
-		  
 		    <div class="row-fluid">
-		      <div class="span12">
-		        <div id="myCarousel" class="carousel slide">
-				  <ol class="carousel-indicators">
-				    <li data-target="/resources/img/bootstrap-mdo-sfmoma-01.jpg" data-slide-to="0" class="active"></li>
-				    <li data-target="/resources/img/bootstrap-mdo-sfmoma-02.jpg" data-slide-to="1"></li>
-				    <li data-target="/resources/img/bootstrap-mdo-sfmoma-03.jpg" data-slide-to="2"></li>
-				  </ol>
-				  <!-- Carousel items -->
-				  <div class="carousel-inner">
-				    <div class="active item"><img src="/resources/img/bootstrap-mdo-sfmoma-01.jpg" alt ></div>
-				    
-				  </div>
-				  <!-- Carousel nav -->
-				  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-				  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-			   </div>
-		      </div>
-		      </div>
-		      <div class="row-fluid">
 		      <div class="span6">
+		        <form class="form-horizontal">
+				  <div class="control-group">
+				    <label class="control-label" for="inputEmail">Email</label>
+				    <div class="controls">
+				      <input type="text" id="inputEmail" placeholder="Email">
+				    </div>
+				  </div>
+				  <div class="control-group">
+				    <label class="control-label" for="inputPassword">Password</label>
+				    <div class="controls">
+				      <input type="password" id="inputPassword" placeholder="Password">
+				    </div>
+				  </div>
+				  <div class="control-group">
+				    <div class="controls">
+				      <label class="checkbox">
+				        <input type="checkbox"> Remember me
+				      </label>
+				      <button type="submit" class="btn">Sign in</button>
+				    </div>
+				  </div>
+				</form>
+		      </div>
+		     <div class="span6">
 		      Fluid 6
 		      </div>
 		    </div>

@@ -1,4 +1,4 @@
-package com.ecs.company.service;
+package com.ecs.company.service.serviceimpl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ecs.company.dao.ContactDAO;
 import com.ecs.company.model.Contact;
+import com.ecs.company.service.ContactService;
 
 
 @Service
