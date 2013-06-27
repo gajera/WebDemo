@@ -1,63 +1,61 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<!DOCTYPE html>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-	<title>Home</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"  type="text/css" />
+    <title>Spring 3 MVC Series - Contact Manager | viralpatel.net</title>
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row-fluid">
-		  <div class="span12">
-	     <ul class="nav nav-pills nav-stacked">
-			<li  class="active"><a >Dashboard<br><br><br><br><br></a></li>
-		 </ul>
-
-		    <div class="row-fluid">
-		      <div class="span6">
-		        <form class="form-horizontal">
-				  <div class="control-group">
-				    <label class="control-label" for="inputEmail">Email</label>
-				    <div class="controls">
-				      <input type="text" id="inputEmail" placeholder="Email">
-				    </div>
-				  </div>
-				  <div class="control-group">
-				    <label class="control-label" for="inputPassword">Password</label>
-				    <div class="controls">
-				      <input type="password" id="inputPassword" placeholder="Password">
-				    </div>
-				  </div>
-				  <div class="control-group">
-				    <div class="controls">
-				      <label class="checkbox">
-				        <input type="checkbox"> Remember me
-				      </label>
-				      <button type="submit" class="btn">Sign in</button>
-				    </div>
-				  </div>
-				</form>
-		      </div>
-		     <div class="span6">
-		      Fluid 6
-		      </div>
-		    </div>
-		    <div class="row-fluid">
-		      <div class="span12">
-		      <ul class="nav nav-pills nav-stacked">
-			    	<li  class="active"><a >Dashboard<br><br><br><br></a></li>
-			  </ul>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</div>
-	
-
-
- 	<script type="text/javascript" src="<c:url value="/resources/jquery/1.6/jquery.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+ 
+<h2>Contact Manager</h2>
+ 
+<form:form method="post" action="add.html" commandName="contact">
+ 
+    <table>
+    <tr>
+        <td><form:label path="firstname"><spring:message code="label.firstname"/></form:label></td>
+        <td><form:input path="firstname" /></td> 
+    </tr>
+    <tr>
+        <td><form:label path="lastname"><spring:message code="label.lastname"/></form:label></td>
+        <td><form:input path="lastname" /></td>
+    </tr>
+    <tr>
+        <td><form:label path="email"><spring:message code="label.email"/></form:label></td>
+        <td><form:input path="email" /></td>
+    </tr>
+    <tr>
+        <td><form:label path="telephone"><spring:message code="label.telephone"/></form:label></td>
+        <td><form:input path="telephone" /></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="<spring:message code="label.addcontact"/>"/>
+        </td>
+    </tr>
+</table>  
+</form:form>
+ 
+     
+<h3>Contacts</h3>
+<c:if  test="${!empty contactList}">
+<table class="data">
+<tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Telephone</th>
+    <th>&nbsp;</th>
+</tr>
+<c:forEach items="${contactList}" var="contact">
+    <tr>
+        <td>${contact.lastname}, ${contact.firstname} </td>
+        <td>${contact.email}</td>
+        <td>${contact.telephone}</td>
+        <td><a href="delete/${contact.id}">delete</a></td>
+    </tr>
+</c:forEach>
+</table>
+</c:if>
+ 
 </body>
 </html>

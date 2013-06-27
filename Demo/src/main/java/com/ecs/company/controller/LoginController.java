@@ -21,14 +21,8 @@ public class LoginController {
 	@Autowired
 	LoginService loginservice;
 	
-	@ModelAttribute("Login")
-	public Login createLogin() {
-		System.out.println("In Login");
-		return new Login();
-	}
-	
 	@RequestMapping(value = "/login")
-    public String validateLogin(@ModelAttribute("login")
+    public String validateLogin(@ModelAttribute("Login")
 	Login login, BindingResult result) {
  
 		System.out.println("In 2nd MEthod");
