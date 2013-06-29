@@ -7,28 +7,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="LOGIN")
+@Table(name="LOGINS")
 public class Login {
 	
 	@Id
-	@Column(name="ID")
-	@GeneratedValue
-	private Integer id;
-	
 	@Column(name="EMAILID")
 	private String EmailId;
 	
 	@Column(name="PASSWORD")
 	private String Password;
 	
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		
-		this.id = id;
-	}
 	public String getEmailId() {
 		return EmailId;
 	}

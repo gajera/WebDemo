@@ -22,7 +22,7 @@
 		    <div class="row-fluid">
 		      <div class="span6">
 		       <div class="container">
-		        <form:form class="form-horizontal" action="login.html" method="post" commandName="Login">
+		        <form:form class="form-horizontal" action="validate.html" commandName="login">
 		         <h2 class="form-signin-heading">Please sign in</h2>
 				  <div class="control-group">
 				    <label class="control-label" for="inputEmail">Email</label>

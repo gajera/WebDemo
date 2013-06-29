@@ -34,7 +34,7 @@ public class HomeController {
 		
 		//model.addAttribute("serverTime", formattedDate );
 		System.out.println("IN HOME Controller");
-		return "redirect:/login";
+		return "redirect:/index";
 	}
 	
 }

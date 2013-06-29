@@ -2,6 +2,8 @@ package com.ecs.company.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -21,14 +23,45 @@ public class LoginController {
 	@Autowired
 	LoginService loginservice;
 	
-	@RequestMapping(value = "/login")
-    public String validateLogin(@ModelAttribute("Login")
-	Login login, BindingResult result) {
+	@RequestMapping(value = "/index")
+    public String listContacts(Map<String, Object> map) {
  
-		System.out.println("In 2nd MEthod");
-		loginservice.validateLogin(login);
+		System.out.println("In 2nd MEthod contact");
+        map.put("login", new Login());
+        //map.put("contactList", contactService.listContact());
  
         return "login";
     }
+
+	@RequestMapping(value = "/validate", method = RequestMethod.POST)
+	public String addContact(@ModelAttribute("login")
+	Login login, BindingResult result) {
+
+		System.out.println("ADD METHOD");
+		//System.out.println(loginservice.validateLogin(login));
+		loginservice.validateLogin(login);
+
+		return "redirect:/contact";
+	}
+	
+	/*@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = "/login")
+    public String validateLogin(@ModelAttribute("Login")Login login , BindingResult result,
+    		HttpServletRequest request) {
+ 
+		System.out.println("In login MEthod");
+		//System.out.println(loginservice.validateLogin(login));
+		/*if(loginservice.validateLogin(new Login())=="1")
+		{
+			 return "login";
+		}
+		else
+		{
+			System.out.println("OUTPUT "+loginservice.validateLogin(new Login()));
+			return null;
+		}
+		
+       return "login";
+    }*/
 
 }

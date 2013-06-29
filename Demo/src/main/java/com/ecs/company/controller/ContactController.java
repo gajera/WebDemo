@@ -21,10 +21,10 @@ public class ContactController {
 
 	
 
-	@RequestMapping("/contact")
+	@RequestMapping(value = "/contact")
     public String listContacts(Map<String, Object> map) {
  
-		System.out.println("In 2nd MEthod");
+		System.out.println("In 2nd MEthod contact");
         map.put("contact", new Contact());
         map.put("contactList", contactService.listContact());
  
@@ -35,6 +35,7 @@ public class ContactController {
 	public String addContact(@ModelAttribute("contact")
 	Contact contact, BindingResult result) {
 
+		System.out.println("ADD MOTHOD");
 		contactService.addContact(contact);
 
 		return "redirect:/contact";
