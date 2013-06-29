@@ -22,8 +22,7 @@ public class LoginServiceImpl implements LoginService{
 	@Transactional
 	public String validateLogin(Login login) {
 		
-		logindao.validateLogin(login);
-		return null;
+		return logindao.validateLogin(login);
 	}
 	
 	

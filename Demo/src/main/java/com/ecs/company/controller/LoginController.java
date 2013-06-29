@@ -36,32 +36,23 @@ public class LoginController {
 	@RequestMapping(value = "/validate", method = RequestMethod.POST)
 	public String addContact(@ModelAttribute("login")
 	Login login, BindingResult result) {
-
-		System.out.println("ADD METHOD");
-		//System.out.println(loginservice.validateLogin(login));
-		loginservice.validateLogin(login);
-
-		return "redirect:/contact";
-	}
-	
-	/*@RequestMapping(method = RequestMethod.POST)
-	@RequestMapping(value = "/login")
-    public String validateLogin(@ModelAttribute("Login")Login login , BindingResult result,
-    		HttpServletRequest request) {
- 
-		System.out.println("In login MEthod");
-		//System.out.println(loginservice.validateLogin(login));
-		/*if(loginservice.validateLogin(new Login())=="1")
+		
+		String output=null;
+		System.out.println("ADD METHOD "+loginservice.validateLogin(login));
+		if(loginservice.validateLogin(login).equals("1"))
 		{
-			 return "login";
+			System.out.println("Yes Valid User");
+			output= "redirect:/contact";
 		}
 		else
 		{
-			System.out.println("OUTPUT "+loginservice.validateLogin(new Login()));
-			return null;
+			System.out.println("InValid User");
+			output= "redirect:/index";
 		}
 		
-       return "login";
-    }*/
+		return output;
+		
+	}
+	
 
 }
