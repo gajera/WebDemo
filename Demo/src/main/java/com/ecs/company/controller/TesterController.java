@@ -13,6 +13,7 @@ import com.ecs.company.model.Contact;
 import com.ecs.company.model.Program;
 import com.ecs.company.model.Tester;
 import com.ecs.company.service.ProgramService;
+import com.ecs.company.service.TesterService;
 import com.ecs.company.service.TesterStatusService;
 
 @Controller
@@ -21,25 +22,21 @@ public class TesterController {
 	
 	@Autowired
 	ProgramService programservice;
-	
 	@Autowired
 	TesterStatusService testerstatuservice;
+	@Autowired
+	TesterService testerservice;
 	
 	
 
 	@RequestMapping(value = "/tester")
     public String listContacts(Map<String, Object> map) {
  
-		List demo=new ArrayList();
-		demo.addAll(programservice.listContact());
-		for(int i=0;i<3;i++)
-		{
-			System.out.println(demo.get(i));
-		}
 		System.out.println("In 2nd MEthod contact");
 		//map.put("tester", new Tester());
         map.put("programNameGet", programservice.listContact());
         map.put("testerStatusGet", testerstatuservice.listTesterStatus());
+        map.put("testerLocationGet", testerservice.listTesterLocation());
          
         return "tester";
     }

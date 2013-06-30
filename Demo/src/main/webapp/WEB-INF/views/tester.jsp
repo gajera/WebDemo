@@ -31,6 +31,14 @@
 				  	 <option value="<%=count++%>">${testerstatus.statusdef}</option>
 				   </c:forEach>
 			  </select>
+			  <%count=1; %>
+			  &nbsp;&nbsp;
+			  <select class="span4">
+			  		<option value="-1">Select Location </option>
+			       <c:forEach items="${testerLocationGet}" var="testerlocation">
+				  	 <option value="${testerlocation}">${testerlocation}</option>
+				   </c:forEach>
+			  </select>
 			  </div>
 		  </div>
 		</div>
