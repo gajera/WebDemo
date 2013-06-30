@@ -8,6 +8,7 @@
     <session-factory>
         <mapping class="com.ecs.company.model.Contact" />
         <mapping class="com.ecs.company.model.Login" />
+        <mapping class="com.ecs.company.model.Program" />
     </session-factory>
 	    
 </hibernate-configuration>

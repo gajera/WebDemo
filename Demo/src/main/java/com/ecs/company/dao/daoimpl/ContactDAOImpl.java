@@ -11,7 +11,6 @@ import com.ecs.company.dao.ContactDAO;
 import com.ecs.company.model.Contact;
 
 @Repository
-@Transactional
 public class ContactDAOImpl implements ContactDAO {
 
 	@Autowired

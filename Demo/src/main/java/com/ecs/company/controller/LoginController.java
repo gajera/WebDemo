@@ -42,7 +42,7 @@ public class LoginController {
 		if(loginservice.validateLogin(login).equals("1"))
 		{
 			System.out.println("Yes Valid User");
-			output= "redirect:/contact";
+			output= "redirect:/tester";
 		}
 		else
 		{

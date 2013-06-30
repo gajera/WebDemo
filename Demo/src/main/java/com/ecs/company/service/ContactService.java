@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ecs.company.model.Contact;
 
-@Transactional
 public interface ContactService {
 	
 	public void addContact(Contact contact);
