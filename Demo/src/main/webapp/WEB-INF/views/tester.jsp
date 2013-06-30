@@ -16,9 +16,10 @@
 		<div class="row-fluid">
 		  <div class="span12">
 			  <div id="programFilter" class="span6">
+			   <%int count=1; %>
 			  <select class="span3">
 			       <c:forEach items="${programNameGet}" var="program">
-				  	 <option>${program.programname}</option>
+				  	 <option value="<%=count++%>">${program.programname}</option>
 				   </c:forEach>
 			  </select>
 			 
