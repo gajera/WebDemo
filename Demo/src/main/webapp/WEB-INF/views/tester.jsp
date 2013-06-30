@@ -17,9 +17,9 @@
 		 <div class="span12">
 		   <div class="row-fluid">
 		      <div class="span12">
-				  <div id="programFilter" class="span12">
+				  <div id="Filter" class="span12">
 				   <%int count=1; %>
-				  <select class="span2">
+				  <select id="programFilter" class="span2" onchange="filter_changed()">
 				  		<option value="-1">Select Program </option>
 				       <c:forEach items="${programNameGet}" var="program">
 					  	 <option value="<%=count++%>">${program.programname}</option>
@@ -27,7 +27,7 @@
 				  </select>
 				 <%count=1; %>
 				 &nbsp;&nbsp;
-				  <select class="span2">
+				  <select id="statusFilter" class="span2" onchange="filter_changed()">
 				  		<option value="-1">Select Status </option>
 				       <c:forEach items="${testerStatusGet}" var="testerstatus">
 					  	 <option value="<%=count++%>">${testerstatus.statusdef}</option>
@@ -35,21 +35,21 @@
 				  </select>
 				  <%count=1; %>
 				  &nbsp;&nbsp;
-				  <select class="span2">
+				  <select id="locationFilter" class="span2" onchange="filter_changed()">
 				  		<option value="-1">Select Location </option>
 				       <c:forEach items="${testerLocationGet}" var="testerlocation">
 					  	 <option value="${testerlocation}">${testerlocation}</option>
 					   </c:forEach>
 				  </select>
 				  &nbsp;&nbsp;
-				  <select class="span2">
+				  <select id="scFilter" class="span2" onchange="filter_changed()">
 				  		<option value="-1">Select SiteCoordinator </option>
 				       <c:forEach items="${testerSCGet}" var="testersc">
 					  	 <option value="${testersc.wwid}">${testersc.lastname}, ${testersc.firstname}</option>
 					   </c:forEach>
 				  </select>
 				   &nbsp;&nbsp;
-				  <input class="span2" type="text" placeholder="Filter by Name">
+				  <input id="nameFilter" class="span2" type="text" placeholder="Filter by Name">
 				  </div>
 				  </div>
 		     </div>
@@ -85,7 +85,7 @@
              </div>
 		  </div>
 		</div>
-
+</div>
 
  	<script type="text/javascript" src="<c:url value="/resources/jquery/1.6/jquery.js" />"></script>
     <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
