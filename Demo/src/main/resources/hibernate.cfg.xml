@@ -11,6 +11,9 @@
         <mapping class="com.ecs.company.model.Program" />
         <mapping class="com.ecs.company.model.TesterStatus" />
         <mapping class="com.ecs.company.model.Tester" />
+        <mapping class="com.ecs.company.model.TesterType" />
+        <mapping class="com.ecs.company.model.TesterChecklist" />
+        <mapping class="com.ecs.company.model.TesterTable" />
     </session-factory>
 	    
 </hibernate-configuration>

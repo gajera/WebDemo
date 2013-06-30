@@ -35,42 +35,27 @@ public class Tester {
 	@Column(name="MAILSTOP")
 	private String mailstop;
 	
-	@Column(name="COUNTRYID")
-	private String countryid;
 	
 	
-	@Column(name="CAMPUSCODE")
-	private String campuscode;
-	
-	@Column(name="OFFICEPHONE")
-	private String officephone;
-	
-	@Column(name="HOMEPHONE")
-	private String homephone;
-	
-	@Column(name="CELLPHONE")
-	private String cellphone;
-	
+
 	@Column(name="TESTERTYPE")
-	private String testerype;
+	private int testertype;
 	
 	@Column(name="CELLPHONESTATUS")
-	private String cellphonestatus;
+	private int cellphonestatus;
 	
 	@Column(name="TABLETSTATUS")
-	private String tabletstatus;
+	private int tabletstatus;
 	
 	@Column(name="SEGMENTID")
-	private String segmentid;
+	private int segmentid;
 	
 	@Column(name="INTELSITE")
 	private String intelsite;
 	
-	@Column(name="JOINDATE")
-	private String joindate;
 	
 	@Column(name="OPTINSTATUS")
-	private String optinstatus;
+	private char optinstatus;
 
 	public int getWwid() {
 		return wwid;
@@ -136,77 +121,12 @@ public class Tester {
 		this.mailstop = mailstop;
 	}
 
-	public String getCountryid() {
-		return countryid;
-	}
+	
+	
 
-	public void setCountryid(String countryid) {
-		this.countryid = countryid;
-	}
 
-	public String getCampuscode() {
-		return campuscode;
-	}
+	
 
-	public void setCampuscode(String campuscode) {
-		this.campuscode = campuscode;
-	}
-
-	public String getOfficephone() {
-		return officephone;
-	}
-
-	public void setOfficephone(String officephone) {
-		this.officephone = officephone;
-	}
-
-	public String getHomephone() {
-		return homephone;
-	}
-
-	public void setHomephone(String homephone) {
-		this.homephone = homephone;
-	}
-
-	public String getCellphone() {
-		return cellphone;
-	}
-
-	public void setCellphone(String cellphone) {
-		this.cellphone = cellphone;
-	}
-
-	public String getTesterype() {
-		return testerype;
-	}
-
-	public void setTesterype(String testerype) {
-		this.testerype = testerype;
-	}
-
-	public String getCellphonestatus() {
-		return cellphonestatus;
-	}
-
-	public void setCellphonestatus(String cellphonestatus) {
-		this.cellphonestatus = cellphonestatus;
-	}
-
-	public String getTabletstatus() {
-		return tabletstatus;
-	}
-
-	public void setTabletstatus(String tabletstatus) {
-		this.tabletstatus = tabletstatus;
-	}
-
-	public String getSegmentid() {
-		return segmentid;
-	}
-
-	public void setSegmentid(String segmentid) {
-		this.segmentid = segmentid;
-	}
 
 	public String getIntelsite() {
 		return intelsite;
@@ -216,20 +136,52 @@ public class Tester {
 		this.intelsite = intelsite;
 	}
 
-	public String getJoindate() {
-		return joindate;
+
+	
+
+	
+	public int getTestertype() {
+		return testertype;
 	}
 
-	public void setJoindate(String joindate) {
-		this.joindate = joindate;
+	public void setTestertype(int testertype) {
+		this.testertype = testertype;
 	}
 
-	public String getOptinstatus() {
+	public int getCellphonestatus() {
+		return cellphonestatus;
+	}
+
+	public void setCellphonestatus(int cellphonestatus) {
+		this.cellphonestatus = cellphonestatus;
+	}
+
+	public int getTabletstatus() {
+		return tabletstatus;
+	}
+
+	public void setTabletstatus(int tabletstatus) {
+		this.tabletstatus = tabletstatus;
+	}
+
+	public int getSegmentid() {
+		return segmentid;
+	}
+
+	public void setSegmentid(int segmentid) {
+		this.segmentid = segmentid;
+	}
+
+	public char getOptinstatus() {
 		return optinstatus;
 	}
 
-	public void setOptinstatus(String optinstatus) {
+	public void setOptinstatus(char optinstatus) {
 		this.optinstatus = optinstatus;
 	}
+
+	
+
+	
 	
 }

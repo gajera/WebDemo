@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ecs.company.dao.TesterDAO;
+import com.ecs.company.model.TesterTable;
 import com.ecs.company.model.Tester;
 import com.ecs.company.service.TesterService;
 
@@ -24,7 +25,7 @@ public class TesterServiceImpl implements TesterService{
 	}
 
 	@Override
-	public List<Tester> listTester() {
+	public List<TesterTable> listTester() {
 		return testerdao.listTester();
 	}
 
@@ -34,9 +35,16 @@ public class TesterServiceImpl implements TesterService{
 	}
 
 	@Override
+	public List<Tester> listTesterSC() {
+		return testerdao.listTesterSC();
+	}
+	
+	@Override
 	public void removeTesterStatus(Integer WWID) {
 		testerdao.removeTesterStatus(WWID);
 		
 	}
+
+	
 
 }
