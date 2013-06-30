@@ -10,6 +10,9 @@
 	<title>Home</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"  type="text/css" />
+    <style type='text/css'>
+    
+	</style>
 </head>
 <body>
 	<div class="container-fluid">
@@ -17,9 +20,11 @@
 		 <div class="span12">
 		   <div class="row-fluid">
 		      <div class="span12">
+		         <div class="span2">
+		         </div>
 				  <div id="Filter" class="span12">
 				   <%int count=1; %>
-				  <select id="programFilter" class="span2" onchange="filter_changed()">
+				  <select id="programFilter" class="span2" onchange="filterChanged()">
 				  		<option value="-1">Select Program </option>
 				       <c:forEach items="${programNameGet}" var="program">
 					  	 <option value="<%=count++%>">${program.programname}</option>
@@ -27,7 +32,7 @@
 				  </select>
 				 <%count=1; %>
 				 &nbsp;&nbsp;
-				  <select id="statusFilter" class="span2" onchange="filter_changed()">
+				  <select id="statusFilter" class="span2" onchange="filterChanged()">
 				  		<option value="-1">Select Status </option>
 				       <c:forEach items="${testerStatusGet}" var="testerstatus">
 					  	 <option value="<%=count++%>">${testerstatus.statusdef}</option>
@@ -35,14 +40,14 @@
 				  </select>
 				  <%count=1; %>
 				  &nbsp;&nbsp;
-				  <select id="locationFilter" class="span2" onchange="filter_changed()">
+				  <select id="locationFilter" class="span2" onchange="filterChanged()">
 				  		<option value="-1">Select Location </option>
 				       <c:forEach items="${testerLocationGet}" var="testerlocation">
 					  	 <option value="${testerlocation}">${testerlocation}</option>
 					   </c:forEach>
 				  </select>
 				  &nbsp;&nbsp;
-				  <select id="scFilter" class="span2" onchange="filter_changed()">
+				  <select id="scFilter" class="span2" onchange="filterChanged()">
 				  		<option value="-1">Select SiteCoordinator </option>
 				       <c:forEach items="${testerSCGet}" var="testersc">
 					  	 <option value="${testersc.wwid}">${testersc.lastname}, ${testersc.firstname}</option>
@@ -54,7 +59,8 @@
 				  </div>
 		     </div>
 		     <div class="row-fluid">
-			     <div class="span12">
+			      <div class="span12">
+		            <div class="span12">
 				     <table class="table table-striped table-bordered ">
 					     <thead>
 			             <tr class="success">
@@ -70,7 +76,7 @@
 			             </thead>
 			              <c:forEach items="${testerTableGet}" var="tester">
 						   <tr>
-						   <td><input id="childCheckbox" type="checkbox" onclick="update_check('${tester.wwid}',this.value)" value="${tester.wwid}"></td>
+						   <td><input id="childCheckbox" type="checkbox" onclick="updateCheck('${tester.wwid}',this.value)" value="${tester.wwid}"></td>
 						   <td>${tester.lastname}, ${tester.firstname}</td>
 						   <td>${tester.email}</td>
 						   <td></td>
@@ -81,6 +87,7 @@
 						   </tr>
 						  </c:forEach>
 					</table>
+					</div>
 			     </div>
              </div>
 		  </div>
@@ -90,4 +97,62 @@
  	<script type="text/javascript" src="<c:url value="/resources/jquery/1.6/jquery.js" />"></script>
     <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 </body>
+
+<script type="text/javascript">
+
+var checkList=new Array(); 
+function filterChanged()
+{
+	$("#programFilter option:selected").val();
+	$("#statusFilter option:selected").val();
+	$("#locationFilter option:selected").val();
+	$("#scFilter option:selected").val();
+	
+}
+
+
+function updateCheck(id,val)
+{
+  if(val)
+	  {
+	  	
+	  	checkList.push(id);
+	  }
+  else
+	  {
+	    
+	  	checkList.splice(checkList.indexOf(id),1);
+	  }
+}
+
+$(function() {
+    // Stick the #nav to the top of the window
+    var nav = $('#Filter');
+    var navHomeY = nav.offset().top;
+    var isFixed = false;
+    var $w = $(window);
+    $w.scroll(function() {
+        var scrollTop = $w.scrollTop();
+        var shouldBeFixed = scrollTop > navHomeY;
+        if (shouldBeFixed && !isFixed) {
+            nav.css({
+                position: 'fixed',
+                top: 0,
+               // left: nav.offset().left,
+                width: nav.width()
+            });
+            isFixed = true;
+        }
+        else if (!shouldBeFixed && isFixed)
+        {
+            nav.css({
+                position: 'static'
+            });
+            isFixed = false;
+        }
+    });
+});
+
+
+</script>
 </html>
