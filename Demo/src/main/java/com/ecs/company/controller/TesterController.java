@@ -13,6 +13,7 @@ import com.ecs.company.model.Contact;
 import com.ecs.company.model.Program;
 import com.ecs.company.model.Tester;
 import com.ecs.company.service.ProgramService;
+import com.ecs.company.service.TesterStatusService;
 
 @Controller
 public class TesterController {
@@ -20,6 +21,9 @@ public class TesterController {
 	
 	@Autowired
 	ProgramService programservice;
+	
+	@Autowired
+	TesterStatusService testerstatuservice;
 	
 	
 
@@ -35,6 +39,7 @@ public class TesterController {
 		System.out.println("In 2nd MEthod contact");
 		//map.put("tester", new Tester());
         map.put("programNameGet", programservice.listContact());
+        map.put("testerStatusGet", testerstatuservice.listTesterStatus());
          
         return "tester";
     }

@@ -18,11 +18,19 @@
 			  <div id="programFilter" class="span6">
 			   <%int count=1; %>
 			  <select class="span3">
+			  		<option value="-1">Select Program </option>
 			       <c:forEach items="${programNameGet}" var="program">
 				  	 <option value="<%=count++%>">${program.programname}</option>
 				   </c:forEach>
 			  </select>
-			 
+			 <%count=1; %>
+			 &nbsp;&nbsp;
+			  <select class="span4">
+			  		<option value="-1">Select Status </option>
+			       <c:forEach items="${testerStatusGet}" var="testerstatus">
+				  	 <option value="<%=count++%>">${testerstatus.statusdef}</option>
+				   </c:forEach>
+			  </select>
 			  </div>
 		  </div>
 		</div>

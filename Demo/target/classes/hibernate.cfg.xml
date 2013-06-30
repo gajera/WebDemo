@@ -9,6 +9,7 @@
         <mapping class="com.ecs.company.model.Contact" />
         <mapping class="com.ecs.company.model.Login" />
         <mapping class="com.ecs.company.model.Program" />
+        <mapping class="com.ecs.company.model.TesterStatus" />
     </session-factory>
 	    
 </hibernate-configuration>

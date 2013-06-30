@@ -18,19 +18,18 @@ public class ContactServiceImpl implements ContactService {
 	@Autowired
 	ContactDAO contactDAO;
 	
-	@Transactional
+	
 	public void addContact(Contact contact) {
 		System.out.println("IN ADD CONTACT SERVICE");
 		contactDAO.addContact(contact);
 	}
 
-	@Transactional
+	
 	public List<Contact> listContact() {
 
 		return contactDAO.listContact();
 	}
 
-	@Transactional
 	public void removeContact(Integer id) {
 		contactDAO.removeContact(id);
 	}
