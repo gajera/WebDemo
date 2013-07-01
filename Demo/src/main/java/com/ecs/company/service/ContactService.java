@@ -2,7 +2,6 @@ package com.ecs.company.service;
 
 import java.util.List;
 
-import org.springframework.transaction.annotation.Transactional;
 
 import com.ecs.company.model.Contact;
 

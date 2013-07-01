@@ -25,7 +25,7 @@
 				  <div id="Filter" class="span12">
 				   <%int count=1; %>
 				  <select id="programFilter" class="span2" onchange="filterChanged()">
-				  		<option value="-1">Select Program </option>
+				  		<option value="-1">Select_Program</option>
 				       <c:forEach items="${programNameGet}" var="program">
 					  	 <option value="<%=count++%>">${program.programname}</option>
 					   </c:forEach>
@@ -33,7 +33,7 @@
 				 <%count=1; %>
 				 &nbsp;&nbsp;
 				  <select id="statusFilter" class="span2" onchange="filterChanged()">
-				  		<option value="-1">Select Status </option>
+				  		<option value="-1">Select_Status</option>
 				       <c:forEach items="${testerStatusGet}" var="testerstatus">
 					  	 <option value="<%=count++%>">${testerstatus.statusdef}</option>
 					   </c:forEach>
@@ -41,14 +41,14 @@
 				  <%count=1; %>
 				  &nbsp;&nbsp;
 				  <select id="locationFilter" class="span2" onchange="filterChanged()">
-				  		<option value="-1">Select Location </option>
+				  		<option value="-1">Select_Location</option>
 				       <c:forEach items="${testerLocationGet}" var="testerlocation">
 					  	 <option value="${testerlocation}">${testerlocation}</option>
 					   </c:forEach>
 				  </select>
 				  &nbsp;&nbsp;
 				  <select id="scFilter" class="span2" onchange="filterChanged()">
-				  		<option value="-1">Select SiteCoordinator </option>
+				  		<option value="-1">Select_SiteCoordinator</option>
 				       <c:forEach items="${testerSCGet}" var="testersc">
 					  	 <option value="${testersc.wwid}">${testersc.lastname}, ${testersc.firstname}</option>
 					   </c:forEach>
@@ -61,9 +61,9 @@
 		     <div class="row-fluid">
 			      <div class="span12">
 		            <div class="span12">
-				     <table class="table table-striped table-bordered ">
+				     <table id="testerTable"class="table table-striped table-bordered ">
 					     <thead>
-			             <tr class="success">
+			             <tr >
 			             	<th><label class="checkbox inline" ><input id="masterCheckbox" type="checkbox" value=""></label></th>
 			                <th>Name</th>
 			                <th>Email</th>
@@ -75,7 +75,7 @@
 			             </tr>
 			             </thead>
 			              <c:forEach items="${testerTableGet}" var="tester">
-						   <tr>
+						   <tr class=" ${tester.programname} Select_Program ${tester.statusdef} Select_Status Select_Location ${tester.intelsite} Select_SiteCoordinator" >
 						   <td><input id="childCheckbox" type="checkbox" onclick="updateCheck('${tester.wwid}',this.value)" value="${tester.wwid}"></td>
 						   <td>${tester.lastname}, ${tester.firstname}</td>
 						   <td>${tester.email}</td>
@@ -101,16 +101,96 @@
 <script type="text/javascript">
 
 var checkList=new Array(); 
+var selections = [];
 function filterChanged()
 {
-	$("#programFilter option:selected").val();
-	$("#statusFilter option:selected").val();
-	$("#locationFilter option:selected").val();
-	$("#scFilter option:selected").val();
-	
+	selections.push($("#programFilter option:selected").text());
+	selections.push($("#statusFilter option:selected").text());
+	selections.push($("#locationFilter option:selected").text());
+	 $("#testerTable tr").each(function (index, row) {
+    	   
+    	$(row).hide();
+        for (var i = 0; i < selections.length; i++) {
+        	//alert($(row).hasClass(selections[0])+" "+$(row).hasClass(selections[1])+" "+$(row).hasClass(selections[2]));
+        	if ($(row).hasClass(selections[0]) && $(row).hasClass(selections[1]) && $(row).hasClass(selections[2]) ) {
+                $(row).show();
+                break;
+           }
+        }
+    });
+    
+    selections=[];
 }
 
+/*$("select#programFilter").change(function () {
+   
 
+    $(this).children(':selected').each(function (index, option) {
+        alert (option.text);
+        selections.push(option.text);
+    });
+
+    //console.log(selections);
+    $("#testerTable tr").each(function (index, row) {
+    	
+        $(row).hide();
+        
+        for (var i = 0; i < selections.length; i++) {
+        	
+        	if ($(row).hasClass(selections[i])) {
+                $(row).show();
+                break;
+            }
+        
+        }
+    });
+});
+
+$("select#statusFilter").change(function () {
+   // var selections = [];
+
+    $(this).children(':selected').each(function (index, option) {
+        alert (option.text);
+        selections.push(option.text);
+    });
+
+    //console.log(selections);
+    
+    $("#testerTable tr").each(function (index, row) {
+    	
+        $(row).hide();
+        alert(selections.length);
+        for (var i = 0; i < selections.length; i++) {
+            if ($(row).hasClass(selections[i])) {
+                $(row).show();
+                break;
+            }
+        }
+    });
+});
+
+$("select#locationFilter").change(function () {
+    //var selections = [];
+
+    $(this).children(':selected').each(function (index, option) {
+        alert (option.text);
+        selections.push(option.text);
+    });
+
+    //console.log(selections);
+    $("#testerTable tr").each(function (index, row) {
+    	
+        $(row).hide();
+        alert(selections.length);
+        for (var i = 0; i < selections.length; i++) {
+            if ($(row).hasClass(selections[i])) {
+                $(row).show();
+                break;
+            }
+        }
+    });
+});
+*/
 function updateCheck(id,val)
 {
   if(val)
