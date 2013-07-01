@@ -111,7 +111,6 @@ function filterChanged()
     	   
     	$(row).hide();
         for (var i = 0; i < selections.length; i++) {
-        	//alert($(row).hasClass(selections[0])+" "+$(row).hasClass(selections[1])+" "+$(row).hasClass(selections[2]));
         	if ($(row).hasClass(selections[0]) && $(row).hasClass(selections[1]) && $(row).hasClass(selections[2]) ) {
                 $(row).show();
                 break;
@@ -122,75 +121,6 @@ function filterChanged()
     selections=[];
 }
 
-/*$("select#programFilter").change(function () {
-   
-
-    $(this).children(':selected').each(function (index, option) {
-        alert (option.text);
-        selections.push(option.text);
-    });
-
-    //console.log(selections);
-    $("#testerTable tr").each(function (index, row) {
-    	
-        $(row).hide();
-        
-        for (var i = 0; i < selections.length; i++) {
-        	
-        	if ($(row).hasClass(selections[i])) {
-                $(row).show();
-                break;
-            }
-        
-        }
-    });
-});
-
-$("select#statusFilter").change(function () {
-   // var selections = [];
-
-    $(this).children(':selected').each(function (index, option) {
-        alert (option.text);
-        selections.push(option.text);
-    });
-
-    //console.log(selections);
-    
-    $("#testerTable tr").each(function (index, row) {
-    	
-        $(row).hide();
-        alert(selections.length);
-        for (var i = 0; i < selections.length; i++) {
-            if ($(row).hasClass(selections[i])) {
-                $(row).show();
-                break;
-            }
-        }
-    });
-});
-
-$("select#locationFilter").change(function () {
-    //var selections = [];
-
-    $(this).children(':selected').each(function (index, option) {
-        alert (option.text);
-        selections.push(option.text);
-    });
-
-    //console.log(selections);
-    $("#testerTable tr").each(function (index, row) {
-    	
-        $(row).hide();
-        alert(selections.length);
-        for (var i = 0; i < selections.length; i++) {
-            if ($(row).hasClass(selections[i])) {
-                $(row).show();
-                break;
-            }
-        }
-    });
-});
-*/
 function updateCheck(id,val)
 {
   if(val)
